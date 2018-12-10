@@ -1,7 +1,7 @@
 function [ dataTable, parpoolTocBytes ] = GeneratePhaseOscillatorModelData(tSwing, tStance)
 %GeneratePhaseOscillatorModelData: A function to generate data using the phase
 %oscillator model from Figure 5 in a table format that can be used with our
-%experimental data analysis code. 
+%experimental data analysis code.
 
 %% Parse arguments
 
@@ -93,7 +93,7 @@ parfor ind = 1:numT
 
     % Discard relaxation window
     theta(:,:,ind) = temp(notDiscardIdx,:,:);
-    
+
     % Print a status update
     fprintf('Integrated parameter set %*d of %*d in %f seconds.\n', dw, ind, dw, numT, toc);
 end
@@ -156,7 +156,7 @@ limbVarListXmm = strcat(limbList, '_xPlot_mm');
 limbVarListYmm = strcat(limbList, '_yPlot_mm');
 downVarList    = strcat(limbList, '_down_cam');
 
-% Define list of nonsense values required for compatibility 
+% Define list of nonsense values required for compatibility
 nullVarList = {'angVel_radPerSec','translationalSpeed_mmPerSec', 'xCOM','yCOM', 'Orient_Rad_FullRotation'};
 
 % Generate zero array for nonsense values
@@ -222,28 +222,31 @@ function [Y,t] = ode2subsample(odefun,tspan, y0, dt, dts, varargin)
 %stored (for the sake of memory efficiency).
 % Adapted from ODE2 in the original MATLAB suite of non-adaptive ODE
 % integrators by JZV
-% See https://blogs.mathworks.com/cleve/2014/05/12/ordinary-differential-equation-suite/
+% The original code may be downloaded from
+% https://www.mathworks.com/matlabcentral/answers/uploaded_files/5693/ODE_Solvers.zip
+% with further explanation by MathWorks support given at
+% https://www.mathworks.com/matlabcentral/answers/98293-is-there-a-fixed-step-ordinary-differential-equation-ode-solver-in-matlab-8-0-r2012b
 
 %ODE2  Solve differential equations with a non-adaptive method of order 2.
-%   Y = ODE2(ODEFUN,TSPAN,Y0) with TSPAN = [T1, T2, T3, ... TN] integrates 
-%   the system of differential equations y' = f(t,y) by stepping from T0 to 
+%   Y = ODE2(ODEFUN,TSPAN,Y0) with TSPAN = [T1, T2, T3, ... TN] integrates
+%   the system of differential equations y' = f(t,y) by stepping from T0 to
 %   T1 to TN. Function ODEFUN(T,Y) must return f(t,y) in a column vector.
-%   The vector Y0 is the initial conditions at T0. Each row in the solution 
+%   The vector Y0 is the initial conditions at T0. Each row in the solution
 %   array Y corresponds to a time specified in TSPAN.
 %
-%   Y = ODE2(ODEFUN,TSPAN,Y0,P1,P2...) passes the additional parameters 
-%   P1,P2... to the derivative function as ODEFUN(T,Y,P1,P2...). 
+%   Y = ODE2(ODEFUN,TSPAN,Y0,P1,P2...) passes the additional parameters
+%   P1,P2... to the derivative function as ODEFUN(T,Y,P1,P2...).
 %
 %   This is a non-adaptive solver. The step sequence is determined by TSPAN
 %   but the derivative function ODEFUN is evaluated multiple times per step.
-%   The solver implements the improved Euler (Heun's) method of order 2.   
+%   The solver implements the improved Euler (Heun's) method of order 2.
 %
-%   Example 
+%   Example
 %         tspan = 0:0.1:20;
-%         y = ode2(@vdp1,tspan,[2 0]);  
+%         y = ode2(@vdp1,tspan,[2 0]);
 %         plot(tspan,y(:,1));
-%     solves the system y' = vdp1(t,y) with a constant step size of 0.1, 
-%     and plots the first component of the solution.   
+%     solves the system y' = vdp1(t,y) with a constant step size of 0.1,
+%     and plots the first component of the solution.
 %
 
 if ~isnumeric(tspan)
@@ -288,7 +291,7 @@ yi = y0;
 for ii = 2:N
     % Get the time
     ti = t(ii-1);
-    
+
     % perform sub-iterations
     while ti < t(ii)
         F(:,1) = feval(odefun,ti,yi,varargin{:});
@@ -296,7 +299,7 @@ for ii = 2:N
         yi = yi + (dts/2)*(F(:,1) + F(:,2));
         ti = ti + dts;
     end
-    
+
     % Store the value
     Y(:,ii) = yi;
 end
