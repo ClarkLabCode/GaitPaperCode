@@ -49,7 +49,8 @@ rbmap(6,:) = x3(2,:);
 cmap_limbrel = rbmap;
 
 % Colormap: Density Plots
-cmap_density = copper(256);
+[ ~, cmap_density, ~ ] = MakeDensityColormaps(); % White to Red colormap
+% cmap_density = copper(256);
 
 % Colormap: Number of feet down
 cmap_numfeet = jet(7) .* 0.8;
@@ -169,9 +170,9 @@ logscale = true;
 clims = [];
 vfBinEdges = [0, 10.1983, 19.0112]; % 33.3% and 66.6% Percentiles in newData.forwardSpeed_mmPerSec > 0.5 mm/s
 smoothing = figureSmoothing;
-pointColor = 'r';
-textColor = 'w';
-suppressExtraPlots = true;
+pointColor = 'k';
+textColor = 'k';
+suppressExtraPlots = false;
 PlotRelativeInstantaneousPhaseJointDistributions_nonSymmetrized( newData_filtered, nbins, cmap, logscale, clims, vfBinEdges, smoothing, pointColor, textColor, suppressExtraPlots );
 
 % F: Example trajectory step plots
@@ -209,8 +210,8 @@ logscale = true;
 clims = [];
 vfBinEdges = [0, 10.1983, 19.0112]; % 33.3% and 66.6% Percentiles in newData.forwardSpeed_mmPerSec > 0.5 mm/s
 smoothing = figureSmoothing;
-pointColor = 'r';
-textColor = 'w';
+pointColor = 'k';
+textColor = 'k';
 suppressExtraPlots = false;
 PlotRelativeInstantaneousPhaseJointDistributions_nonSymmetrized( newData_filtered, nbins, cmap, logscale, clims, vfBinEdges, smoothing, pointColor, textColor, suppressExtraPlots );
 
@@ -411,8 +412,8 @@ logscale = true;
 clims = [];
 vfBinEdges = [0, 10.1983, 19.0112]; % Bounds for experiments.
 smoothing = false;
-pointColor = 'r';
-textColor = 'w';
+pointColor = 'k';
+textColor = 'k';
 suppressExtraPlots = true;
 % Tripod 
 PlotRelativeInstantaneousPhaseJointDistributions_nonSymmetrized( tripodData, nbins, cmap, logscale, clims, vfBinEdges, smoothing, pointColor, textColor, suppressExtraPlots );

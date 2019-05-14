@@ -74,9 +74,17 @@ end
 makeFigure;
 
 if logscale
+    hold on;
     imagesc(vfCenters, stanceCenters, log10(N)');
+    [xList, yList] = meshgrid(vfCenters, stanceCenters);
+    contour(xList, yList, log10(N)','edgecolor', 'k');
+
 else
+    hold on;
     imagesc(vfCenters, stanceCenters, N');
+    [xList, yList] = meshgrid(vfCenters, stanceCenters);
+    contour(xList, yList, N','edgecolor', 'k');
+
 end
 axis('xy','square','tight');
 
@@ -108,9 +116,15 @@ ConfAxis;
 makeFigure;
 
 if logscale
+    hold on;
     imagesc(vfCenters, stanceCenters, log10(N)');
+    [xList, yList] = meshgrid(vfCenters, stanceCenters);
+    contour(xList, yList, log10(N)','edgecolor', 'k');
 else
+    hold on;
     imagesc(vfCenters, stanceCenters, N');
+    [xList, yList] = meshgrid(vfCenters, stanceCenters);
+    contour(xList, yList, N','edgecolor', 'k');
 end
 axis('xy','square','tight');
 

@@ -126,7 +126,9 @@ subplot(1,2,1);
 
 switch plotStyle
     case 'contour'
+        hold on;
         contourf(xx,yy,N_left', contourOpts{:});
+        contour(xx,yy,N_left','edgecolor', 'k');
     case 'imagesc'
         imagesc(binCenters, binCenters, (N_left)');
 end
@@ -156,7 +158,9 @@ title('left');
 subplot(1,2,2);
 switch plotStyle
     case 'contour'
+        hold on;
         contourf(xx,yy,N_right', contourOpts{:});
+        contour(xx,yy,N_right','edgecolor', 'k');
     case 'imagesc'
         imagesc(binCenters, binCenters, (N_right)');
 end
@@ -190,7 +194,9 @@ figure('Position',[200,500,1000,1000],'WindowStyle','docked');
 subplot(1,2,1);
 switch plotStyle
     case 'contour'
+        hold on;
         contourf(xx,yy,N_left', contourOpts{:});
+        contour(xx,yy,N_left','edgecolor', 'k');
     case 'imagesc'
         imagesc(binCenters, binCenters, (N_left)');
 end
@@ -218,7 +224,9 @@ title('left');
 subplot(1,2,2);
 switch plotStyle
     case 'contour'
+        hold on;
         contourf(xx,yy,N_right', contourOpts{:});
+        contour(xx,yy,N_right','edgecolor', 'k');
     case 'imagesc'
         imagesc(binCenters, binCenters, (N_right)');
 end
@@ -292,7 +300,9 @@ if ~suppressExtraPlots
         
         switch plotStyle
             case 'contour'
+                hold on;
                 contourf(xx,yy,squeeze(N_left(:,:,ind))', contourOpts{:});
+                contour(xx,yy,squeeze(N_left(:,:,ind))','edgecolor', 'k');
             case 'imagesc'
                 imagesc(binCenters, binCenters, squeeze(N_left(:,:,ind))');
         end
@@ -329,7 +339,9 @@ if ~suppressExtraPlots
         subplot(1,2,2);
         switch plotStyle
             case 'contour'
+                hold on;
                 contourf(xx,yy,squeeze(N_right(:,:,ind))', contourOpts{:});
+                contour(xx,yy,squeeze(N_right(:,:,ind))','edgecolor', 'k');
             case 'imagesc'
                 imagesc(binCenters, binCenters, squeeze(N_right(:,:,ind))');
         end

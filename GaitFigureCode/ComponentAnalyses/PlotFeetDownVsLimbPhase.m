@@ -103,7 +103,11 @@ norm_joint = N_joint ./ (normConst * phaseBinWidth * speedBinWidth);
 
 % Midlimbs, 0 Feet Down
 makeFigure;
+hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,1,2));
+[xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
+contour(xList, yList, norm_joint(:,:,1,2),'edgecolor', 'k');
+
 title({'Midlimbs','0 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -120,7 +124,10 @@ ConfAxis;
 
 % Midlimbs, 1 Foot Down
 makeFigure;
+hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,2,2));
+[xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
+contour(xList, yList, norm_joint(:,:,2,2),'edgecolor', 'k');
 title({'Midlimbs','1 Foot Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -137,7 +144,10 @@ ConfAxis;
 
 % Midlimbs, 2 Feet Down
 makeFigure;
+hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,3,2));
+[xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
+contour(xList, yList, norm_joint(:,:,3,2),'edgecolor', 'k');
 title({'Midlimbs','2 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -154,7 +164,10 @@ ConfAxis;
 
 % Midlimbs, 3 Feet Down
 makeFigure;
+hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,4,2));
+[xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
+contour(xList, yList, norm_joint(:,:,4,2),'edgecolor', 'k');
 title({'Midlimbs','3 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -172,7 +185,10 @@ ConfAxis;
 
 % Midlimbs, 4 Feet Down
 makeFigure;
+hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,5,2));
+[xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
+contour(xList, yList, norm_joint(:,:,5,2),'edgecolor', 'k');
 title({'Midlimbs','4 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -190,7 +206,10 @@ ConfAxis;
 
 % Midlimbs, 5 Feet Down
 makeFigure;
+hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,6,2));
+[xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
+contour(xList, yList, norm_joint(:,:,6,2),'edgecolor', 'k');
 title({'Midlimbs','5 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -208,7 +227,10 @@ ConfAxis;
 
 % Midlimbs, 6 Feet Down
 makeFigure;
+hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,7,2));
+[xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
+contour(xList, yList, norm_joint(:,:,7,2),'edgecolor', 'k');
 title({'Midlimbs','6 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');

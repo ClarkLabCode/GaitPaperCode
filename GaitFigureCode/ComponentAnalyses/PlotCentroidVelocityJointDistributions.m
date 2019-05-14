@@ -85,9 +85,16 @@ N = histcounts2(vf, vp, vfBinEdges, vpBinEdges, 'normalization','pdf');
 
 figure('Position',[200,500,1000,1000],'WindowStyle','docked');
 if logscale
-   imagesc(vfBinCenters, vpBinCenters, log10(N)'); 
+    hold on;
+    imagesc(vfBinCenters, vpBinCenters, log10(N)');
+    [xList, yList] = meshgrid(vfBinCenters, vpBinCenters);
+    contour(xList, yList, log10(N)','edgecolor', 'k');
 else
-    imagesc(vfBinCenters, vpBinCenters, (N)'); 
+    hold on;
+    imagesc(vfBinCenters, vpBinCenters, N');
+    [xList, yList] = meshgrid(vfBinCenters, vpBinCenters);
+    contour(xList, yList, N','edgecolor', 'k');
+
 end
 
 axis('xy','square','tight');
@@ -113,9 +120,15 @@ N = histcounts2(vf, vr, vfBinEdges, vrBinEdges, 'normalization','pdf');
 
 figure('Position',[200,500,1000,1000],'WindowStyle','docked');
 if logscale
-   imagesc(vfBinCenters, vrBinCenters, log10(N)'); 
+    hold on;
+    imagesc(vfBinCenters, vrBinCenters, log10(N)');
+    [xList, yList] = meshgrid(vfBinCenters, vrBinCenters);
+    contour(xList, yList, log10(N)','edgecolor', 'k');
 else
-    imagesc(vfBinCenters, vrBinCenters, (N)'); 
+    hold on;
+    imagesc(vfBinCenters, vrBinCenters, (N)');
+    [xList, yList] = meshgrid(vfBinCenters, vrBinCenters);
+    contour(xList, yList, (N)','edgecolor', 'k');    
 end
 
 axis('xy','square','tight');
@@ -141,9 +154,15 @@ N = histcounts2(vp, vr, vpBinEdges, vrBinEdges, 'normalization','pdf');
 
 figure('Position',[200,500,1000,1000],'WindowStyle','docked');
 if logscale
-   imagesc(vpBinCenters, vrBinCenters, log10(N)'); 
+    hold on;
+    imagesc(vpBinCenters, vrBinCenters, log10(N)'); 
+    [xList, yList] = meshgrid(vpBinCenters, vrBinCenters);
+    contour(xList, yList, log10(N)','edgecolor', 'k');
 else
-    imagesc(vpBinCenters, vrBinCenters, (N)'); 
+    hold on;
+    imagesc(vpBinCenters, vrBinCenters, (N)');
+    [xList, yList] = meshgrid(vpBinCenters, vrBinCenters);
+    contour(xList, yList, (N)','edgecolor', 'k');
 end
 
 axis('xy','square','tight');
