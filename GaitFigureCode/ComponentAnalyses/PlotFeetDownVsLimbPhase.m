@@ -21,6 +21,9 @@ if ~exist('corder','var') || isempty(corder)
     corder = jet(7) .* 0.8;
 end
 
+% Set the number of contour lines
+numLvl = 3;
+
 %% Calculate the data for each limb
 
 % Calculate the number of feet down during each fly-frame
@@ -106,7 +109,7 @@ makeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,1,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
-contour(xList, yList, norm_joint(:,:,1,2),'edgecolor', 'k');
+contour(xList, yList, norm_joint(:,:,1,2),numLvl,'edgecolor', 'k');
 
 title({'Midlimbs','0 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
@@ -127,7 +130,7 @@ makeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,2,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
-contour(xList, yList, norm_joint(:,:,2,2),'edgecolor', 'k');
+contour(xList, yList, norm_joint(:,:,2,2),numLvl,'edgecolor', 'k');
 title({'Midlimbs','1 Foot Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -147,7 +150,7 @@ makeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,3,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
-contour(xList, yList, norm_joint(:,:,3,2),'edgecolor', 'k');
+contour(xList, yList, norm_joint(:,:,3,2),numLvl,'edgecolor', 'k');
 title({'Midlimbs','2 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -167,7 +170,7 @@ makeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,4,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
-contour(xList, yList, norm_joint(:,:,4,2),'edgecolor', 'k');
+contour(xList, yList, norm_joint(:,:,4,2),numLvl,'edgecolor', 'k');
 title({'Midlimbs','3 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -188,7 +191,7 @@ makeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,5,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
-contour(xList, yList, norm_joint(:,:,5,2),'edgecolor', 'k');
+contour(xList, yList, norm_joint(:,:,5,2),numLvl,'edgecolor', 'k');
 title({'Midlimbs','4 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -209,7 +212,7 @@ makeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,6,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
-contour(xList, yList, norm_joint(:,:,6,2),'edgecolor', 'k');
+contour(xList, yList, norm_joint(:,:,6,2),numLvl,'edgecolor', 'k');
 title({'Midlimbs','5 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');
@@ -230,7 +233,7 @@ makeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,7,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
-contour(xList, yList, norm_joint(:,:,7,2),'edgecolor', 'k');
+contour(xList, yList, norm_joint(:,:,7,2),numLvl,'edgecolor', 'k');
 title({'Midlimbs','6 Feet Down'});
 ylabel({'Phase', '(Cycle Fractions)'});
 set(gca,'YDir','normal');

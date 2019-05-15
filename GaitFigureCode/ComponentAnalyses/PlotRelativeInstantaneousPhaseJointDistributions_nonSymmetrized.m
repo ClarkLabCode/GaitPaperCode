@@ -50,6 +50,8 @@ end
 
 contourOpts = {20, 'EdgeColor', 'none'};
 
+% Set the number of contour lines
+numLvl = 3;
 
 %% Get the data
 
@@ -128,7 +130,7 @@ switch plotStyle
     case 'contour'
         hold on;
         contourf(xx,yy,N_left', contourOpts{:});
-        contour(xx,yy,N_left','edgecolor', 'k');
+        contour(xx,yy,N_left',numLvl,'edgecolor', 'k');
     case 'imagesc'
         imagesc(binCenters, binCenters, (N_left)');
 end
@@ -160,7 +162,7 @@ switch plotStyle
     case 'contour'
         hold on;
         contourf(xx,yy,N_right', contourOpts{:});
-        contour(xx,yy,N_right','edgecolor', 'k');
+        contour(xx,yy,N_right',numLvl,'edgecolor', 'k');
     case 'imagesc'
         imagesc(binCenters, binCenters, (N_right)');
 end
@@ -196,7 +198,7 @@ switch plotStyle
     case 'contour'
         hold on;
         contourf(xx,yy,N_left', contourOpts{:});
-        contour(xx,yy,N_left','edgecolor', 'k');
+        contour(xx,yy,N_left',numLvl,'edgecolor', 'k');
     case 'imagesc'
         imagesc(binCenters, binCenters, (N_left)');
 end
@@ -226,7 +228,7 @@ switch plotStyle
     case 'contour'
         hold on;
         contourf(xx,yy,N_right', contourOpts{:});
-        contour(xx,yy,N_right','edgecolor', 'k');
+        contour(xx,yy,N_right',numLvl,'edgecolor', 'k');
     case 'imagesc'
         imagesc(binCenters, binCenters, (N_right)');
 end
@@ -302,7 +304,7 @@ if ~suppressExtraPlots
             case 'contour'
                 hold on;
                 contourf(xx,yy,squeeze(N_left(:,:,ind))', contourOpts{:});
-                contour(xx,yy,squeeze(N_left(:,:,ind))','edgecolor', 'k');
+                contour(xx,yy,squeeze(N_left(:,:,ind))',numLvl,'edgecolor', 'k');
             case 'imagesc'
                 imagesc(binCenters, binCenters, squeeze(N_left(:,:,ind))');
         end
@@ -341,7 +343,7 @@ if ~suppressExtraPlots
             case 'contour'
                 hold on;
                 contourf(xx,yy,squeeze(N_right(:,:,ind))', contourOpts{:});
-                contour(xx,yy,squeeze(N_right(:,:,ind))','edgecolor', 'k');
+                contour(xx,yy,squeeze(N_right(:,:,ind))',numLvl,'edgecolor', 'k');
             case 'imagesc'
                 imagesc(binCenters, binCenters, squeeze(N_right(:,:,ind))');
         end

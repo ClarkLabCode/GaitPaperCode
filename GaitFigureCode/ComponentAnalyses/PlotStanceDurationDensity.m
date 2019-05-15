@@ -24,6 +24,9 @@ if ~exist('plot_type','var') || isempty(plot_type)
     plot_type = 'joint';
 end
 
+% Set the number of contour lines
+numLvl = 3;
+
 %% Get the data in order
 
 % Define a limb list
@@ -77,13 +80,13 @@ if logscale
     hold on;
     imagesc(vfCenters, stanceCenters, log10(N)');
     [xList, yList] = meshgrid(vfCenters, stanceCenters);
-    contour(xList, yList, log10(N)','edgecolor', 'k');
+    contour(xList, yList, log10(N)',numLvl,'edgecolor', 'k');
 
 else
     hold on;
     imagesc(vfCenters, stanceCenters, N');
     [xList, yList] = meshgrid(vfCenters, stanceCenters);
-    contour(xList, yList, N','edgecolor', 'k');
+    contour(xList, yList, N',numLvl,'edgecolor', 'k');
 
 end
 axis('xy','square','tight');
@@ -119,12 +122,12 @@ if logscale
     hold on;
     imagesc(vfCenters, stanceCenters, log10(N)');
     [xList, yList] = meshgrid(vfCenters, stanceCenters);
-    contour(xList, yList, log10(N)','edgecolor', 'k');
+    contour(xList, yList, log10(N)',numLvl,'edgecolor', 'k');
 else
     hold on;
     imagesc(vfCenters, stanceCenters, N');
     [xList, yList] = meshgrid(vfCenters, stanceCenters);
-    contour(xList, yList, N','edgecolor', 'k');
+    contour(xList, yList, N',numLvl,'edgecolor', 'k');
 end
 axis('xy','square','tight');
 
