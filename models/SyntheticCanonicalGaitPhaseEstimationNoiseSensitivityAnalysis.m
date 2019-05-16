@@ -1,7 +1,8 @@
 %% Set all parameters
 
 % Colormap
-[ ~, cmp, ~ ] = MakeTurningPaperColormaps();
+addpath('../TurningFigureCode/Utilities');
+[ ~, cmp, ~ ] = MakeTurningColormaps();
 
 % Number of trajectories
 n = 1000;
