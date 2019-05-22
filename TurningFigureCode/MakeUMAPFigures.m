@@ -51,36 +51,9 @@ meanSubtractTrajectories = true;
 % This script prepares everything 
 PrepareDataForUMAP;
 
-%% Show limb data covariance matrix and first four PCs
+%% Make PCA visualizations
 
-C = cov(X_L);
-[ cmpBlueRed, cmpRed, cmpBlue ] = MakeTurningColormaps();
-MakeFigure;
-imagesc(C);
-axis('xy','square','tight', 'off');
-cbar = colorbar;
-caxis([-1,1]);
-colormap(cmpBlueRed);
-ylabel(cbar, 'Covariance (standardized units)');
-cbar.Ticks = [-1,0,1];
-ConfAxis('fontSize', 16);
-
-[coeff,score,latent] = pca(X_L);
-for ind = 1:4
-    MakeFigure;
-    imagesc(t_ms, 1:12, reshape(coeff(:,ind), length(t_ms), 12)');
-    axis('xy','square','tight');
-    xlabel('Time (ms)');
-    yticks(1:12);
-    yticklabels([strcat({'L1','L2','L3','R1','R2','R3'}, '_x'), strcat({'L1','L2','L3','R1','R2','R3'}, '_y')]);
-    ConfAxis('fontSize', 16);
-    cbar = colorbar;
-    caxis([-0.2,0.2]);
-    cbar.Ticks = [-0.2, 0, 0.2];
-    colormap(cmpBlueRed);
-    title(sprintf('PC %d', ind));
-    ylabel(cbar, 'weighting (standardized units)');
-end
+MakeLimbDataPCAVisualizations;
 
 %% Write cache paths to a text file so that the Python code can find them
 % This is a terrible bodge, and assumes that this code is run with the base
