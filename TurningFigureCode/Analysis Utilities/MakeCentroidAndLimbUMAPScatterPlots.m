@@ -352,6 +352,34 @@ for ind = 1:6
     colormap(cmpBlueRed);
 end
 
+%% Scatter limb embedding colored by limb phase
+
+% Make a circular colormap
+hmap(1:2^16,1) = linspace(0,1,2^16);
+hmap(:,[2 3]) = 0.8;
+huemap = hsv2rgb(hmap);
+
+for ind = 1:6
+    MakeFigure;
+    scattern(limbUMAP(:, 1:3), 10, squeeze(Phi(t==0,ind,:)), 'filled');
+    axis('equal');
+    caxis([0 1]);
+    xlabel('u_1 (arb. units)');
+    ylabel('u_2 (arb. units)');
+    zlabel('u_3 (arb. units)');
+    
+    cbar = colorbar;
+    ylabel(cbar, sprintf('\\phi_{%s}(0) (cycles)', limbList{ind}));
+    ConfAxis('fontSize', 14);
+    cbar.Ticks = 0:0.5:1;
+    colormap(huemap);
+    
+    view(viewport);
+    xticks(-10:2:10);
+    yticks(-10:2:10);
+    zticks(-10:2:10);
+end
+
 %% Scatter limb emebedding, colored by mean frequency
 
 meanFreq = squeeze(mean(mean(dPhi(:,:,:),2),1));
