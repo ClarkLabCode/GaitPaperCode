@@ -71,7 +71,7 @@ ni = length(unique(id));
 numPsi = size(psi,1);
 phiMean = nan(size(Phi,1), numPsi);
 for ind = 1:numPsi
-    phiMean(:,ind) = nanmean(exp(1i * (Phi + 2*pi * psi(ind,:))),2);
+    phiMean(:,ind) = nanmean(exp(1i * (Phi - 2*pi * psi(ind,:))),2);
 end
 
 % Compute the modulus and argument of each resultant
