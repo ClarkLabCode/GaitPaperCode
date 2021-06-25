@@ -49,7 +49,7 @@ ID = ID(notNan,:);
 % Iterate over limbs
 fPDF = nan(length(xq), 6);
 for ind = 1:6
-    fPDF(:,ind) = bqksdensity(2*pi*Phi(:,ind), 2*pi*xq, bqScale);
+    fPDF(:,ind) = bqksdensity(2*pi*Phi(:,ind), 2*pi*xq, bqScale)/(2*pi);
 end
 
 % Compute the CDF from the PDF
@@ -77,7 +77,7 @@ if plotCI
         end
         
         % Compute 95% CIs by bootstrapping
-        ci = bootci(nboot, {@(x) bqksdensity(2*pi*cell2mat(x), 2*pi*xq, bqScale), X}, 'Options', statset('UseParallel', true));
+        ci = bootci(nboot, {@(x) bqksdensity(2*pi*cell2mat(x), 2*pi*xq, bqScale)/(2*pi), X}, 'Options', statset('UseParallel', true));
         ciLowerPDF(:,ii) = ci(1,:);
         ciUpperPDF(:,ii) = ci(2,:);
         fprintf('Computed confidence intervals for limb %d of 6 in %f seconds\n', ii, toc);

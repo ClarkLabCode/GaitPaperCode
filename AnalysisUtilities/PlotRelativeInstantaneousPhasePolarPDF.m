@@ -85,7 +85,7 @@ seriesLabels = {'L1-R1','L2-R2','L3-R3','M-F','H-M','H-F'};
 N = zeros(length(queryAngles), size(Phi_rel, 2));
 
 for ind=1:size(Phi_rel,2)
-    N(:,ind) = vmksdensity(Phi_rel(:,ind), queryAngles);
+    N(:,ind) = vmksdensity(Phi_rel(:,ind), queryAngles)/(2*pi);
 end
 
 figure('Position',[200,500,1000,1000],'WindowStyle','docked');
@@ -109,20 +109,20 @@ if ~ suppressExtraPlots
     % v < vfBinEdges(1) mm/s
     idx = v < vfBinEdges(1);
     for ind=1:size(Phi_rel,2)
-        N(:, ind, 1) = vmksdensity(Phi_rel(idx,ind), queryAngles);
+        N(:, ind, 1) = vmksdensity(Phi_rel(idx,ind), queryAngles)/(2*pi);
     end
     
     % v > vfBinEdges(end) mm/s
     idx = v > vfBinEdges(end);
     for ind=1:size(Phi_rel,2)
-        N(:, ind, end) = vmksdensity(Phi_rel(idx,ind), queryAngles);
+        N(:, ind, end) = vmksdensity(Phi_rel(idx,ind), queryAngles)/(2*pi);
     end
     
     for ind = 2:length(vfBinEdges)
         % vfBinEdges(ind-1) <= v < vfBinEdges(ind) mm/s
         idx = (v>=vfBinEdges(ind-1)) & (v<vfBinEdges(ind));
         for ii=1:size(Phi_rel,2)
-            N(:, ii, ind) = vmksdensity(Phi_rel(idx,ii), queryAngles);
+            N(:, ii, ind) = vmksdensity(Phi_rel(idx,ii), queryAngles)/(2*pi);
         end
     end
     
@@ -162,7 +162,7 @@ if ~ suppressExtraPlots
     for ind=1:6
         Phi_rel = mod(Phi(:, idx(idx~=ind) ) - Phi(:, ind), 2*pi);
         for ii=1:5
-            N(:, ii, ind) = vmksdensity(Phi_rel(:, ii), queryAngles);
+            N(:, ii, ind) = vmksdensity(Phi_rel(:, ii), queryAngles)/(2*pi);
         end
     end
     
