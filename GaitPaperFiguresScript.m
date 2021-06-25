@@ -257,6 +257,15 @@ corder = flipud(cmap_numfeet);
 smoothing = figureSmoothing;
 PlotRelativePhaseVsPhaseMultipleSpeedsFrames( newData, speed_edges, corder, smoothing );
 
+%% Figure 3 - figure supplement 2: distributions of relative phase conditioned on forward speed
+
+% Calculate and plot the full distributions
+vEdges = [2.5:1:35];
+pEdges = [0:.05:1];
+cmap = cmap_density;
+numLvl = 3; % Number of iso lines
+PlotPhaseDensity( newData, vEdges, pEdges, cmap, numLvl );
+
 %% Figure 4: Dimensionality reduction reveals the manifold structure of limb coordination patterns.
 
 % See UMAP code.

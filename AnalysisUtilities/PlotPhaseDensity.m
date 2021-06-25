@@ -65,7 +65,7 @@ for i = 1:size(Phi_rel,2)
         
         % Kernel Density Estimates
         idx = (vDisc==indV) & ~isnan(Phi_rel(:,i));
-        N(:,indV, i) = bqksdensity(2*pi*Phi_rel(idx,i), 2*pi*pBinCenters);     
+        N(:,indV, i) = bqksdensity(2*pi*Phi_rel(idx,i), 2*pi*pBinCenters)/(2*pi);     
         
     end
     
@@ -83,7 +83,7 @@ for i = 1:size(Phi_rel,2)
     cbar = colorbar;
     cbar.Location = 'northoutside';
     title(labelList{i});
-    ylabel('P(\Delta \phi | v_{||})');
+    ylabel('conditional PDF (1/cycles)');
     axis('xy','square');
     xlabel('v_{||} (mm/s)');
     xticks([10,20,30]);
