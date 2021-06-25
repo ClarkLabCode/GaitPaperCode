@@ -1,4 +1,4 @@
-%% SETTURNINGDATAPATHS.m
+%% SETDATAPATHS.m
 % This script sets the paths to the .mat files containing the data and adds
 % the required code directories to the Matlab path
 
@@ -12,5 +12,4 @@ wtdatapath = fullfile(basepath, '');
 brdatapath = fullfile(basepath, '');
 
 % Add code directories to Matlab path
-addpath('Utilities');
-addpath('AnalysisUtilities');
+addpath('AnalysisUtilities','Utilities');

@@ -1,17 +1,15 @@
 % GaitPaperFiguresScript.m: Script For organizing and generating figures 
 % for "The manifold structure of limb coordination in walking Drosophila"
 
-% Define the parent path for the location of all data files. Keep all 
-% datasets in this directory.
-parentPath = '';
+% Set data paths
+SetDataPaths;
 
 %% Load the relevant datasets
 
 % Load the wild type data
 tic;
-path = parentPath;
 file = '20181025_20180530-20180614_IsoD1_Glass_MaskedModel_1000PCs_amplitude_phase_down_downcam_Steps(_down_cam).mat';
-data_path = strcat(path,file);
+data_path = strcat(basepath,file);
 load(data_path, 'newData');
 fprintf('Loaded the desired dataset: %f seconds.\n',toc);
 
@@ -102,6 +100,10 @@ vfedges = [5:1:35];
 corder_all = cmap_sixlegs;
 [ f, gof, output ] = calcPowerLaw( newData );
 [ swing_counts, stance_counts ] = PlotStepStatisticDistributionsBootstraps( newData, num_bootstraps, vfedges, corder_all, f, gof );
+
+%% Figure 1, figure supp. 1: Linear regression accurately identifies footfall positions.
+
+% See feature extraction code
 
 %% Figure 2: Drosophila uses a two-cycle gait across all walking speeds.
 
@@ -197,7 +199,7 @@ PlotCanonicalGaitModeCoherences( newData, cmp, corder );
 %% Supplemental Figure Components: Additional Measures of Limb Phase
 
 % Figure 2, figure supp. 1: Analytic Signal Decomposition
-path = parentPath;
+path = basepath;
 file = 'Tripod-gait.mat';
 data_path = strcat(path,file);
 load(data_path, 'singleFly');
@@ -234,7 +236,7 @@ addNoise = false;
 clear newData
 
 % Load the model data
-path = parentPath;
+path = basepath;
 file = 'step_aspect_ratio_model_integrated_20181031-MatchExpDataFormat.mat';
 data_path = strcat(path,file);
 load(data_path, 'newData');
@@ -323,7 +325,7 @@ PlotRelativePhaseVsPhaseMultipleSpeedsFrames( modelData, speed_edges, corder, sm
 clear modelData
 
 % Load the moonwalker data
-path = parentPath;
+path = basepath;
 file = '20181025_20180501-20180511_Moonwalker-8ms_Glass_MaskedModel_1000PCs_amplitude_phase_down_downcam_Steps(_down_cam).mat';
 data_path = strcat(path,file);
 load(data_path, 'newData');
@@ -341,7 +343,7 @@ picked_ID = 42;
 singleFly = PlotExampleTrajectory( moonData, 'Optogenetic', 'Moonwalker', lineThickness, cmap, picked_ID );
 
 % Load the visual stimulus data
-path = parentPath;
+path = basepath;
 file = '20181025_VisualStimulus-isod1_50ms_random_dots_20180126-merged_down_downcam_Steps(_down_cam).mat';
 data_path = strcat(path,file);
 load(data_path, 'newData');
@@ -358,14 +360,12 @@ cmap = cmap_sixlegs;
 picked_ID = 29;
 singleFly = PlotExampleTrajectory( vizData, 'Visual', 'Visual', lineThickness, cmap, picked_ID );
 
-%% Figure 1, figure supp. 1: Linear regression accurately identifies footfall positions.
 
-% See feature extraction code
 
 %% Figure 3, figure supp. 1: Synthetic canonical gaits differ in relative phase measurements from those of free-walking Drosophila.
 
 % Load the data
-path = parentPath;
+path = basepath;
 file = '20181126_CanonicalGaits-DataTable.mat';
 data_path = strcat(path,file);
 load(data_path, 'newData');

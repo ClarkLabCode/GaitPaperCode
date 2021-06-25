@@ -3,7 +3,7 @@
 % "The manifold structure of limb coordination in walking Drosophila"
 
 % Set data paths
-SetTurningDataPaths;
+SetDataPaths;
 
 % Set minimum forward speed for yaw extremum detection
 vfMin = 0.5;
