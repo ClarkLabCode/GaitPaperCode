@@ -353,10 +353,32 @@ corder = flipud(cmap_numfeet);
 smoothing = false;
 PlotRelativePhaseVsPhaseMultipleSpeedsFrames( modelData, speed_edges, corder, smoothing );
 
-%% Figure 6: Experimental perturbations of walking speed modulate stance duration.
+%% Figure 6: Turning correlates with small modulations of limb kinematics
+
+% Clear previous versions of dataset
+clearvars newData modelData;
+
+% Set minimum forward speed for yaw extremum detection
+vfMin = 0.5;
+
+% Set range of forward velocities on which to condition
+vfInterval = [15, 20];
+
+% Load data from file and prepare data
+load(wtdatapath, 'newData');
+[ newData ] = PrepareTurningData(newData, vfMin);
+
+% Swing & stance durations conditioned on centroid kinematics
+PlotSwingStanceStatisticsConditionedOnCentroidKinematics( newData, vfInterval );
+
+% Step length & direction conditioned on centroid kinematics
+PlotAverageStepLengthAndDirection( newData, vfInterval );
+
+
+%% Figure 8: Experimental perturbations of walking speed modulate stance duration.
 
 % Clear the Model dataset
-clear modelData
+clearvars modelData newData;
 
 % Load the moonwalker data
 path = basepath;
