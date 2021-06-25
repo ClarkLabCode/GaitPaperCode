@@ -6,10 +6,7 @@
 basepath = '';
 
 % Path to wild-type data file
-wtdatapath = fullfile(basepath, '');
-
-% Path to bristle activation data file
-brdatapath = fullfile(basepath, '');
+wtdatapath = fullfile(basepath, '20181025_20180530-20180614_IsoD1_Glass_MaskedModel_1000PCs_amplitude_phase_down_downcam_Steps(_down_cam).mat');
 
 % Add code directories to Matlab path
 addpath('AnalysisUtilities','Utilities');

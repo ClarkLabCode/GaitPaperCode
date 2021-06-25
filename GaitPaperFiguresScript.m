@@ -8,9 +8,7 @@ SetDataPaths;
 
 % Load the wild type data
 tic;
-file = '20181025_20180530-20180614_IsoD1_Glass_MaskedModel_1000PCs_amplitude_phase_down_downcam_Steps(_down_cam).mat';
-data_path = strcat(basepath,file);
-load(data_path, 'newData');
+load(wtdatapath, 'newData');
 fprintf('Loaded the desired dataset: %f seconds.\n',toc);
 
 %% Set some parameters for the plots
