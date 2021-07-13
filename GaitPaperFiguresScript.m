@@ -1,5 +1,5 @@
-% GaitPaperFiguresScript.m: Script For organizing and generating figures 
-% for "The manifold structure of limb coordination in walking Drosophila"
+% GaitPaperFiguresScript.m: Script for organizing and generating figures 
+% from "The manifold structure of limb coordination in walking Drosophila"
 
 % Set data paths
 SetDataPaths;
@@ -47,6 +47,7 @@ cmap_limbrel = rbmap;
 % Colormap: Density Plots
 [ ~, cmap_density, ~ ] = MakeDensityColormaps(); % White to Red colormap
 % cmap_density = copper(256);
+% cmap_density = viridis(2^16);
 
 % Colormap: Number of feet down
 cmap_numfeet = jet(7) .* 0.8;
@@ -264,7 +265,8 @@ vEdges = [2.5:1:35];
 pEdges = [0:.05:1];
 cmap = cmap_density;
 numLvl = 3; % Number of iso lines
-PlotPhaseDensity( newData, vEdges, pEdges, cmap, numLvl );
+useKDE = false;
+PlotPhaseDensity( newData, vEdges, pEdges, cmap, numLvl, useKDE );
 
 %% Figure 4: Dimensionality reduction reveals the manifold structure of limb coordination patterns.
 

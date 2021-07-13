@@ -1,5 +1,5 @@
-function PlotPhaseDensity( newData, vEdges, pEdges, cmap, numLvl )
-% This function generates distributions of relative phases as a function of 
+function PlotPhaseDensity( newData, vEdges, pEdges, cmap, numLvl, useKDE )
+% This function generates distributions of relative phases as a function of
 %forward speed
 
 %% Validate inputs
@@ -22,12 +22,16 @@ if ~exist('numLvl','var') || isempty(numLvl)
     numLvl = 3;
 end
 
+if ~exist('useKDE','var') || isempty(useKDE)
+    useKDE = false;
+end
+
 %% Calculate values
 
 % Labels for each of the pairwise relationships
 labelList = {'L1-R1', 'L2-R2', 'L3-R3',...
-             'L2-L1', 'L3-L2', 'L3-L1',...
-             'R2-R1', 'R3-R2', 'R3-R1'};
+    'L2-L1', 'L3-L2', 'L3-L1',...
+    'R2-R1', 'R3-R2', 'R3-R1'};
 
 % Extract the instantaneous phases
 varList = {'InstantaneousPhase_L1y', 'InstantaneousPhase_L2y', 'InstantaneousPhase_L3y', ...
@@ -60,30 +64,42 @@ vDisc = discretize(vel, vEdges);
 N = nan(length(pBinCenters), length(vBinCenters), 9);
 
 % Compute each of the kernel density estimates
-for i = 1:size(Phi_rel,2)
+for indL = 1:size(Phi_rel,2)
     for indV = 1:length(vEdges)-1
         
-        % Kernel Density Estimates
-        idx = (vDisc==indV) & ~isnan(Phi_rel(:,i));
-        N(:,indV, i) = bqksdensity(2*pi*Phi_rel(idx,i), 2*pi*pBinCenters)/(2*pi);     
+        % Index
+        idx = (vDisc==indV) & ~isnan(Phi_rel(:,indL));
+        
+        if useKDE
+            % Kernel density estimate of conditional PDF
+            N(:,indV,indL) = bqksdensity(2*pi*Phi_rel(idx,indL), 2*pi*pBinCenters)/(2*pi);
+            
+        else
+            % Binned histogram
+            N(:,indV,indL) = histcounts(Phi_rel(idx,indL), pEdges, 'normalization','probability');
+            
+        end
         
     end
     
 end
 
 %% Plot
-makeFigure;
-for i = 1:size(Phi_rel,2)
-    subplot(3,3,i);
+
+for indL = 1:size(Phi_rel,2)
+    MakeFigure;
+    imagesc(vBinCenters, pBinCenters, squeeze(N(:,:,indL)));
     hold on;
-    imagesc(vBinCenters, pBinCenters, squeeze(N(:,:,i)));
     [xList, yList] = meshgrid(vBinCenters, pBinCenters);
-    contour(xList, yList, squeeze(N(:,:,i)),numLvl,'edgecolor', 'k');
+    contour(xList, yList, squeeze(N(:,:,indL)),numLvl,'edgecolor', 'k');
     colormap(cmap);
     cbar = colorbar;
-    cbar.Location = 'northoutside';
-    title(labelList{i});
-    ylabel('conditional PDF (1/cycles)');
+    ylabel(sprintf('%s relative phase (cycles mod 1)',labelList{indL}));
+    if useKDE
+        ylabel(cbar, 'conditional PDF (1/cycles)');
+    else
+        ylabel(cbar, 'conditional relative probability');
+    end
     axis('xy','square');
     xlabel('v_{||} (mm/s)');
     xticks([10,20,30]);
