@@ -67,7 +67,7 @@ for n = 1:length(speed_edges)-1
 end
 
 %% Create the figure
-makeFigure;
+MakeFigure;
 PlotXvsY(phases, mean_rel, 'error', std_rel, 'color', corder); % STD
 xlabel('\phi_{L2}');
 ylabel('\phi_{L2}-\phi_{R2}');
@@ -79,7 +79,7 @@ xlim([0 1]);
 ylim([0 1]);
 axis square;
 
-makeFigure;
+MakeFigure;
 PlotXvsY(phases, mean_rel, 'error', sem_rel, 'color', corder); % SEM
 xlabel('\phi_{L2}');
 ylabel('\phi_{L2}-\phi_{R2}');

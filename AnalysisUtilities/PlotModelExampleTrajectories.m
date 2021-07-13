@@ -14,7 +14,7 @@ speeds = ids(:,2);
 limbList = {'L3','L2','L1'};
 limbUpDownList = strcat(limbList,'_down_cam');
 
-makeFigure;
+MakeFigure;
 for n = 1:num_ids
     
     subplot(num_ids,1,n);
@@ -61,7 +61,7 @@ end
 limbList = {'R3','R2','R1','L3','L2','L1'};
 limbUpDownList = strcat(limbList,'_down_cam');
 
-makeFigure;
+MakeFigure;
 for n = 1:num_ids
     
     subplot(num_ids,1,n);

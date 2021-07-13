@@ -12,7 +12,7 @@ sample_length = 100;
 
 %% Generate and plot a canonical tripod gait
 
-makeFigure;
+MakeFigure;
 
 % Define a step order (limbList);
 limbList = {'R3','R2','R1','L3','L2','L1'};
@@ -53,7 +53,7 @@ set(gca,'linewidth',6);
 
 %% Generate and plot a canonical tetrapod gait
 
-makeFigure;
+MakeFigure;
 
 % Define a step order (limbList);
 limbList = {'R3','R2','R1','L3','L2','L1'};
@@ -94,7 +94,7 @@ set(gca,'linewidth',6);
 
 %% Generate and plot a canonical wave gait
 
-makeFigure;
+MakeFigure;
 
 % Define a step order (limbList);
 limbList = {'R3','R2','R1','L3','L2','L1'};

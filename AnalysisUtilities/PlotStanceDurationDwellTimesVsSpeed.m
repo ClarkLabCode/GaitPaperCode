@@ -118,7 +118,7 @@ for n = 1:length(stateList)
     velocity{n} = vels;
     
 %     % TEST: Plot a histogram of the distribution of step durations in frames
-%     makeFigure;
+%     MakeFigure;
 %     histogram(durs);
 %     title(state_labels{n});
 %     xlabel('Duration (Frames)');
@@ -155,7 +155,7 @@ end
 time = round((durBinEdges(1:end-1)+durBinEdges(2:end))/2,2);
 
 % Plot the distribution of all selected stance configurations in a single plot (All walking speeds)
-makeFigure;
+MakeFigure;
 for n = 1:numStances
     hold on;
     plot(time, N(:,n), 'linewidth', 2, 'color', corder(numFeet(n)+1,:));
@@ -167,7 +167,7 @@ title_text = {strcat(num2str(0),'< v_{||} <=', num2str(vfBinEdges(1))), ...
               strcat(num2str(vfBinEdges(2)),'< v_{||}')};
 
 % Plot the distribution of all selected stance configurations in a single plot (Conditioned on walking speeds) 
-makeFigure;
+MakeFigure;
 for m = 1:numSpeeds
     subplot(1,3,m);
     for n = 1:numStances
@@ -188,7 +188,7 @@ Ncdf = [zeros(1,14);Ncdf];
 Ncdf_binned = cat(1,zeros(1,14,3),Ncdf_binned);
 
 % Plot the distribution of all selected stance configurations in a single plot (All walking speeds)
-makeFigure;
+MakeFigure;
 for n = 1:numStances
     hold on;
     plot(time, Ncdf(:,n), 'linewidth', 2, 'color', corder(numFeet(n)+1,:));
@@ -200,7 +200,7 @@ title_text = {strcat(num2str(0),'< v_{||} <=', num2str(vfBinEdges(1))), ...
               strcat(num2str(vfBinEdges(2)),'< v_{||}')};
 
 % Plot the distribution of all selected stance configurations in a single plot (Conditioned on walking speeds) 
-makeFigure;
+MakeFigure;
 for m = 1:numSpeeds
     subplot(1,3,m);
     for n = 1:numStances

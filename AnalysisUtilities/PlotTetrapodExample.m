@@ -32,7 +32,7 @@ traj_length = size(singleFly,1);
 time = (([1:traj_length]-1)/150)*1000; % in milliseconds. 150 fps is the frame rate
 
 % Make a new figure
-makeFigure;
+MakeFigure;
 
 % Plot the limb relative phases
 subplot(3,1,1);

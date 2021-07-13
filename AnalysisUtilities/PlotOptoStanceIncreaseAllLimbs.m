@@ -207,7 +207,7 @@ time = [-winlen:winlen]'*1000/150;
 if ~suppressPlots
     
     % Unnormalized Walking Speed
-    makeFigure;
+    MakeFigure;
     PlotConfidenceIntervalWithErrorPatch( time, meanSpeed, walk_ci(1,:)', walk_ci(2,:)');
     title({trigger_type, strcat('Mean Forward Speed (Bootstrapped) n=',num2str(num_ex))});
     xlabel('Time (ms)');
@@ -225,7 +225,7 @@ normSpeed = speed ./ repmat(preSpeed,winlen*2+1,1);
 normMeanSpeed = mean(normSpeed,2);
 
 if ~suppressPlots
-    makeFigure;
+    MakeFigure;
     PlotConfidenceIntervalWithErrorPatch( time, normMeanSpeed, normWalk_ci(1,:)', normWalk_ci(2,:)');
     title({trigger_type, strcat('Normalized Mean Forward (Bootstrapped) Speed n=',num2str(num_ex))});
     xlabel('Time (ms)');
@@ -250,7 +250,7 @@ time = [-winlen:winlen]'*1000/150;
 if ~suppressPlots
     
     % Unnormalized Walking Speed
-    makeFigure;
+    MakeFigure;
     PlotXvsY(time,meanSpeed,'error',semSpeed);
     title({trigger_type, strcat('Mean Forward Speed (SEM) n=',num2str(num_ex))});
     xlabel('Time (ms)');
@@ -269,7 +269,7 @@ normMeanSpeed = mean(normSpeed,2);
 normSemSpeed = std(normSpeed,[],2)./(num_ex^(1/2));
 
 if ~suppressPlots
-    makeFigure;
+    MakeFigure;
     PlotXvsY(time,normMeanSpeed,'error',normSemSpeed);
     title({trigger_type, strcat('Normalized Mean Forward Speed (SEM) n=',num2str(num_ex))});
     xlabel('Time (ms)');
@@ -287,7 +287,7 @@ postDurations_pdf = ksdensity(post_stances(:), dur_binCenters);
 
 if ~suppressPlots
     % Plot
-    makeFigure;
+    MakeFigure;
     hold on;
     PlotConfidenceIntervalWithErrorPatch( [dur_binCenters;dur_binCenters]', [preDurations_pdf;postDurations_pdf]', [pre_pdf_ci(1,:);post_pdf_ci(1,:)]', [pre_pdf_ci(2,:);post_pdf_ci(2,:)]');
     title({trigger_type, strcat('Stance Duration Distributions - All Limbs n=',num2str(num_ex))});
@@ -306,7 +306,7 @@ postDurations_cdf = ksdensity(post_stances(:), dur_binCenters, 'Function', 'cdf'
 
 if ~suppressPlots
     % Plot
-    makeFigure;
+    MakeFigure;
     hold on;
     PlotConfidenceIntervalWithErrorPatch([dur_binCenters;dur_binCenters]', [preDurations_cdf;postDurations_cdf]', [pre_cdf_ci(1,:);post_cdf_ci(1,:)]', [pre_cdf_ci(2,:);post_cdf_ci(2,:)]');
     title({trigger_type, strcat('Stance Duration Distributions - All Limbs n=',num2str(num_ex))});
@@ -320,7 +320,7 @@ end
 %% Create a scatter plot of all datapoints
 
 if ~suppressPlots
-    makeFigure;
+    MakeFigure;
     s = scatter(data(:,1), data(:,2), 'filled');
     s.MarkerFaceAlpha = .2;
     hold on;

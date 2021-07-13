@@ -159,7 +159,7 @@ clearvars X M;
 v_bins = repmat(v_bin,1,size(mean_delta_phi,2));
 
 % Plot it up
-makeFigure;
+MakeFigure;
 subplot(1,2,1);
 hold on;
 PlotConfidenceIntervalWithErrorPatch( v_bins, mean_delta_phi, lower_ci(:,1:6), upper_ci(:,1:6), corder);

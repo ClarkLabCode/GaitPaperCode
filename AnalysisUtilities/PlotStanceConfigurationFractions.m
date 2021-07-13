@@ -309,7 +309,7 @@ max3 = binCenters(find(majorPercentage(:,4) == max(majorPercentage(:,4))));
 max4 = binCenters(find(majorPercentage(:,5) == max(majorPercentage(:,5))));
 max5 = binCenters(find(majorPercentage(:,6) == max(majorPercentage(:,6))));
 
-makeFigure;
+MakeFigure;
 
 % Plot the canonical 3 feet down combinations
 % [010101, 101010] --> Tripod states (21, 42)

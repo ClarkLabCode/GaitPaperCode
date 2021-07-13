@@ -74,7 +74,7 @@ else
 end
     
 % Plot the data (Joint Distribution)
-makeFigure;
+MakeFigure;
 
 if logscale
     hold on;
@@ -116,7 +116,7 @@ ConfAxis;
 %% Identify trajectories in each of the desired stance duration ranges
 
 % Plot the data (again)
-makeFigure;
+MakeFigure;
 
 if logscale
     hold on;

@@ -91,7 +91,7 @@ end
 %% Plot all the data
 
 % Linear Velocity
-makeFigure;
+MakeFigure;
 PlotConfidenceIntervalWithErrorPatch( speedBinCenters', means{1}', ...
     speed_bounds{1}(2,:)', speed_bounds{1}(1,:)', corder(1,:));
 set(gca, 'YScale', 'log');
@@ -102,7 +102,7 @@ ylabel('log pdf (s/mm)');
 ConfAxis;
 
 % Angular Velocity
-makeFigure;
+MakeFigure;
 PlotConfidenceIntervalWithErrorPatch( vrBinCenters', means{2}', ...
     speed_bounds{2}(2,:)', speed_bounds{2}(1,:)', corder(2,:));
 % xlim([min(vrBinEdges), max(vrBinEdges)]);
@@ -113,7 +113,7 @@ ylabel('log pdf (s/\circ)');
 ConfAxis;
 
 % Forward Speed
-makeFigure;
+MakeFigure;
 PlotConfidenceIntervalWithErrorPatch( vfBinCenters', means{3}', ...
     speed_bounds{3}(2,:)', speed_bounds{3}(1,:)', corder(3,:));
 % xlim([min(vfBinEdges), max(vfBinEdges)]);
@@ -123,7 +123,7 @@ ylabel('log pdf (s/mm)');
 ConfAxis;
 
 % Lateral Speed
-makeFigure;
+MakeFigure;
 PlotConfidenceIntervalWithErrorPatch( vpBinCenters', means{4}', ...
     speed_bounds{4}(2,:)', speed_bounds{4}(1,:)', corder(4,:));
 % xlim([min(vpBinEdges), max(vpBinEdges)]);

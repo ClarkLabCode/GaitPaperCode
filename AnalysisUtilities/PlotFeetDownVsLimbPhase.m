@@ -105,7 +105,7 @@ norm_joint = N_joint ./ (normConst * phaseBinWidth * speedBinWidth);
 %% Plot the joint densities - Just the midlimbs (We calculate all the others too)
 
 % Midlimbs, 0 Feet Down
-makeFigure;
+MakeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,1,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
@@ -126,7 +126,7 @@ ylabel(cbar, 'pdf (s * mm^{-1} * cycles^{-1})');
 ConfAxis;
 
 % Midlimbs, 1 Foot Down
-makeFigure;
+MakeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,2,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
@@ -146,7 +146,7 @@ ylabel(cbar, 'pdf (s * mm^{-1} * cycles^{-1})');
 ConfAxis;
 
 % Midlimbs, 2 Feet Down
-makeFigure;
+MakeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,3,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
@@ -166,7 +166,7 @@ ylabel(cbar, 'pdf (s * mm^{-1} * cycles^{-1})');
 ConfAxis;
 
 % Midlimbs, 3 Feet Down
-makeFigure;
+MakeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,4,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
@@ -187,7 +187,7 @@ ylabel(cbar, 'pdf (s * mm^{-1} * cycles^{-1})');
 ConfAxis;
 
 % Midlimbs, 4 Feet Down
-makeFigure;
+MakeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,5,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
@@ -208,7 +208,7 @@ ylabel(cbar, 'pdf (s * mm^{-1} * cycles^{-1})');
 ConfAxis;
 
 % Midlimbs, 5 Feet Down
-makeFigure;
+MakeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,6,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
@@ -229,7 +229,7 @@ ylabel(cbar, 'pdf (s * mm^{-1} * cycles^{-1})');
 ConfAxis;
 
 % Midlimbs, 6 Feet Down
-makeFigure;
+MakeFigure;
 hold on;
 imagesc(binCenters_vel, binCenters_phase, norm_joint(:,:,7,2));
 [xList, yList] = meshgrid(binCenters_vel, binCenters_phase);
@@ -251,7 +251,7 @@ ConfAxis;
 %% Plot the data for each limb (Separate Figures)
 
 % for i = 1:3
-% makeFigure;
+% MakeFigure;
 % 
 % imagesc(binCenters_phase, 1:6, (N(:,:,i))');
 % title(nameList{i});
@@ -271,7 +271,7 @@ ConfAxis;
 
 %% Plot the data for each limb (Single Figure)
 
-% makeFigure;
+% MakeFigure;
 % for i = 1:3
 %     
 %     subplot(1,3,i);
@@ -295,7 +295,7 @@ ConfAxis;
 
 legendStr = {'1 foot down','2 feet down', '3 feet down', '4 feet down', '5 feet down','6 feet down'};
 
-makeFigure;
+MakeFigure;
 i = 1;
 for n = 1:length(nameList) % Loop through the limbs
     for m = 1:numSpeeds % Loop through the speeds
@@ -326,7 +326,7 @@ end
 
 legendStr = {'3 feet down', '4 feet down', '5 feet down'};
 
-makeFigure;
+MakeFigure;
 i = 1;
 for n = 1:length(nameList) % Loop through the limbs
     for m = 1:numSpeeds % Loop through the speeds
@@ -359,7 +359,7 @@ end
 
 legendStr = {'3 feet down', '4 feet down', '5 feet down'};
 
-makeFigure;
+MakeFigure;
 i = 1;
 n = 2; % Fix to midlimbs
 for m = 1:numSpeeds % Loop through the speeds

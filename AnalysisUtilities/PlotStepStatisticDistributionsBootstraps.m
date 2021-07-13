@@ -162,7 +162,7 @@ upper_ci_stances = squeeze(ci_stances(:,2,:,:));
 % Plot the camera frame step amplitudes
 vfBins = repmat((vfedges(1:end-1)+vfedges(2:end))'./2, 1,6);
 
-makeFigure;
+MakeFigure;
 PlotConfidenceIntervalWithErrorPatch( vfBins, steps_mean, lower_ci_swings(:,:,1)', upper_ci_swings(:,:,1)', corder_all);
 legend(limbList);
 ylabel({'Camera Frame Step Amplitude','mm'});
@@ -180,7 +180,7 @@ ConfAxis;
 % % Plot the camera frame step amplitudes
 % vfBins = repmat((vfedges(1:end-1)+vfedges(2:end))'./2, 1,6);
 % 
-% makeFigure;
+% MakeFigure;
 % PlotConfidenceIntervalWithErrorPatch( vfBins, steps_mean, lower_ci_swings(:,:,2)', upper_ci_swings(:,:,2)', corder_all);
 % legend(limbList);
 % ylabel({'Egocentric Step Amplitude','mm'});
@@ -200,7 +200,7 @@ swing_counts = sum(steps_count)';
 % Plot the camera frame step amplitudes
 vfBins = repmat((vfedges(1:end-1)+vfedges(2:end))'./2, 1,6);
 
-makeFigure;
+MakeFigure;
 PlotConfidenceIntervalWithErrorPatch( vfBins, steps_mean, lower_ci_swings(:,:,3)', upper_ci_swings(:,:,3)', corder_all);
 legend(limbList);
 ylabel({'Swing Duration','ms'});
@@ -221,7 +221,7 @@ stance_counts = sum(steps_count)';
 % Plot the camera frame step amplitudes
 vfBins = repmat((vfedges(1:end-1)+vfedges(2:end))'./2, 1,6);
 
-makeFigure;
+MakeFigure;
 PlotConfidenceIntervalWithErrorPatch( vfBins, steps_mean, lower_ci_stances(:,:,1)', upper_ci_stances(:,:,1)', corder_all);
 plot(vfBins(:,1), f.a .* vfBins(:,1).^f.b, 'color', [.5,.5,.5], 'linestyle', '--', 'linewidth', 1);
 legend(limbList);
@@ -241,7 +241,7 @@ ConfAxis;
 % % Plot the camera frame step amplitudes
 % vfBins = repmat((vfedges(1:end-1)+vfedges(2:end))'./2, 1,6);
 % 
-% makeFigure;
+% MakeFigure;
 % PlotConfidenceIntervalWithErrorPatch( vfBins, steps_mean, lower_ci_stances(:,:,2)', upper_ci_stances(:,:,2)', corder_all);
 % legend(limbList);
 % ylabel({'Step Period','ms'});

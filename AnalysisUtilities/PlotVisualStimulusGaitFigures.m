@@ -40,7 +40,7 @@ legend_labels{1} = strcat('Random Trigger n=', num2str(size(data_ctrl, 1)/6));
 legend_labels{2} = strcat('Experiment n=', num2str(size(data_exp, 1)/6));
 
 % Unnormalized Walking Speed
-makeFigure;
+MakeFigure;
 PlotConfidenceIntervalWithErrorPatch( [time_ctrl, time_exp], [meanSpeed_ctrl, meanSpeed_exp], [errorSpeed_ci_ctrl(1,:);errorSpeed_ci_exp(1,:)]', [errorSpeed_ci_ctrl(2,:);errorSpeed_ci_exp(2,:)]');
 title({'Visual Stimulus', 'Unnormalized Walking Speed'});
 xlabel('Time (ms)');
@@ -58,7 +58,7 @@ legend_labels{1} = strcat('Random Trigger n=', num2str(size(data_ctrl, 1)/6));
 legend_labels{2} = strcat('Experiment n=', num2str(size(data_exp, 1)/6));
 
 % Normalized Walking Speed
-makeFigure;
+MakeFigure;
 PlotConfidenceIntervalWithErrorPatch( [time_ctrl, time_exp], [normMeanSpeed_ctrl, normMeanSpeed_exp], [errorNormSpeed_ci_ctrl(1,:);errorNormSpeed_ci_exp(1,:)]', [errorNormSpeed_ci_ctrl(2,:);errorNormSpeed_ci_exp(2,:)]');
 title({'Visual Stimulus', 'Normalized Walking Speed'});
 xlabel('Time (ms)');
@@ -83,7 +83,7 @@ legend_labels{1} = strcat('Random Trigger n=', num2str(size(data_ctrl, 1)));
 legend_labels{2} = strcat('Experiment n=', num2str(size(data_exp, 1)));
 
 % Plot
-makeFigure;
+MakeFigure;
 hold on;
 PlotConfidenceIntervalWithErrorPatch( [dur_binCenters;dur_binCenters]', [postDurations_pdf_ctrl;postDurations_pdf_exp]', ...
     [post_pdf_ci_ctrl(1,:);post_pdf_ci_exp(1,:)]', [post_pdf_ci_ctrl(2,:);post_pdf_ci_exp(2,:)]', cmap);
@@ -104,7 +104,7 @@ legend_labels{1} = strcat('Random Trigger n=', num2str(size(data_ctrl, 1)));
 legend_labels{2} = strcat('Experiment n=', num2str(size(data_exp, 1)));
 
 % Plot
-makeFigure;
+MakeFigure;
 hold on;
 PlotConfidenceIntervalWithErrorPatch( [dur_binCenters;dur_binCenters]', [postDurations_cdf_ctrl;postDurations_cdf_exp]', ...
     [post_cdf_ci_ctrl(1,:);post_cdf_ci_exp(1,:)]', [post_cdf_ci_ctrl(2,:);post_cdf_ci_exp(2,:)]', cmap);

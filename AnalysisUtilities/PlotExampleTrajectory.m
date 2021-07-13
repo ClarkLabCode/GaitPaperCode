@@ -93,7 +93,7 @@ n = picked_ID;
 time = (([-winlen:winlen])/150)*1000; % in milliseconds. 150 fps is the frame rate
     
 % Create a figure
-makeFigure;
+MakeFigure;
 
 % Plot the y-position data below
 subplot(3,1,1);

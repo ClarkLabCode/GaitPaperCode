@@ -8,7 +8,7 @@ singleFly = singleFly(2:end,:);
 % Define a time Variable
 time = (([1:size(singleFly,1)]-1)/150)*1000; % in milliseconds. 150 fps is the frame rate
 
-makeFigure;
+MakeFigure;
 subplot(3,1,1);
 hold on;
 plot(time, -singleFly.L2_yPlot_mm, 'linewidth', 2, 'marker', 'none', 'color', 'b');
