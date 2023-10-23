@@ -29,7 +29,7 @@ v_range = max(v,[],1) - min(v,[],1);
 
 %% Plot 1 - Distributions of accelerations and decelerations
 
-makeFigure;
+MakeFigure;
 plot(v(end,:), a, 'linestyle', 'none', 'marker', '.');
 xlabel('v_{||}');
 ylabel('dv/dt');
@@ -38,7 +38,7 @@ ConfAxis;
 
 % TODO: Convert to a line plot
 % Distribution of average accelerations
-makeFigure;
+MakeFigure;
 histogram(a);
 ylabel('Count');
 xlabel('dv/dt');
@@ -46,7 +46,7 @@ ConfAxis;
 
 % TODO: Convert to a line plot
 % Plot of range of velocities
-makeFigure;
+MakeFigure;
 histogram(v_range);
 ylabel('Count');
 xlabel('Velocity Range (mm/s)');
@@ -103,7 +103,7 @@ pdfUp = histcounts(cntUp, [-.5:1:6.5],'normalization','probability');
 pdfDown = histcounts(cntDown, [-.5:1:6.5],'normalization','probability');
 
 % Plot the results
-makeFigure; 
+MakeFigure; 
 plot([0:6;0:6]', [pdfUp;pdfDown]', 'linewidth', 2);
 xlabel('Number of Feet in Stance');
 ylabel('Probability');
@@ -157,7 +157,7 @@ for prIdx = 1:9
 end
 
 % Plot each of the relative phase distributions
-makeFigure;
+MakeFigure;
 for prIdx = 1:9
     
     subplot(3,3,prIdx);
