@@ -19,7 +19,7 @@ if __name__ == "__main__":
     with h5py.File(sourcepath, "r") as hf:
         if "x_v" in hf:
             x_v = np.array(hf["x_v"]).T
-            centroid_components = int(hf["centroid_components"].value)
+            centroid_components = int(hf["centroid_components"][()])
             print(f"Imported centroid data array with shape {x_v.shape}")
             embed_centroids = True
         else:
@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
         if "x_l" in hf:
             x_l = np.array(hf["x_l"]).T
-            limb_components = int(hf["limb_components"].value)
+            limb_components = int(hf["limb_components"][()])
             print(f"Imported limb data array with shape {x_l.shape}")
             embed_limbs = True
         else:
