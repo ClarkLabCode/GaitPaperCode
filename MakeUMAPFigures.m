@@ -93,6 +93,14 @@ fprintf('Wrote data to HDF5 file in %f seconds.\nPath: %s\n', toc, umapdatapath)
 %% Run the UMAP script in Python
 % One could call Python from inside MATLAB, but it's generally easier to
 % just run the Python script manually.
+%
+% The appropriate script is `/AnalysisUtilities/run_timeseries_umap.py`
+%
+% What you need to do is to cd into that directory, and call the script. It
+% depends on https://umap-learn.readthedocs.io/
+
+% To force users to do this, raise an error:
+error('You must manually run /AnalysisUtilities/run_timeseries_umap.py in Python.');
 
 %% Load UMAP results into MATLAB from file
 % The Python UMAP script generates an HDF5 cache file containing the
@@ -110,6 +118,8 @@ fprintf('Read result from HDF5 file in %f seconds.\nPath: %s\n', toc, umapresult
 %% Make UMAP scatter plots
 % It's probably advisible to run this script block-by-block, as the size of
 % the plots in memory will be quite large.
+
+warning('Generating UMAP plots. This should be run manually due to the size of the scatter plots in memory.');
 
 MakeCentroidAndLimbUMAPScatterPlots;
 
