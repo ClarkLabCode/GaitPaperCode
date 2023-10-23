@@ -95,15 +95,6 @@ PlotFeetDownVsLimbPhase( newData_UpDownChange, nbins, vfBinEdges, cmap, corder, 
 % Clear the threshold changed dataset
 clear newData_UpDownChange
 
-%% Figure 2: Forward Speed vs. Relative Phase Full Distributions
-
-% Calculate and plot the full distributions
-vEdges = [2.5:1:35];
-pEdges = [0:.05:1];
-cmap = cmap_density;
-numLvl = 3; % Number of iso lines
-PlotPhaseDensity( newData, vEdges, pEdges, cmap, numLvl );
-
 %% Figure 3: Example Trajectories with Mendes 2013 metrics
 
 % Calculate and plot the example trajectories with the desired metrics added
